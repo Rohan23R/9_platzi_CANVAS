@@ -1,8 +1,24 @@
 var d = document.getElementById("dibujito"); 
 var lienzo =d.getContext("2d");
-console.log(lienzo);
- 
-/*
+var lineas = 30;
+var l = 0;
+var yi, xf;
+
+for(l=0;l<lineas; l++){
+    y1 = 10*l;
+    xf = 4*(l+1)+150;
+    
+    dibujarLinea("#AAF", 150, y1, xf, 300);
+    dibujarLinea("#AAF", 150, y1, 300-xf, 300);
+    
+    console.log("linea " +l);
+    l++;
+
+}
+dibujarLinea("red", 1,1,0,300);
+dibujarLinea("red", 1,300,300,300);
+
+
 function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal){
 
     lienzo.beginPath();
@@ -12,41 +28,3 @@ function dibujarLinea(color, xinicial, yinicial, xfinal, yfinal){
     lienzo.stroke();
     lienzo.closePath();
 }
-
-
-dibujarLinea("pink", 10, 300, 220, 10);
-dibujarLinea("yellow", 20, 200, 120, 60);
-*/
-
-function inicioLinea(color, xinicial, yinicial){
-    lienzo.beginPath();
-    lienzo.strokeStyle = color;
-    lienzo.moveTo(xinicial, yinicial);
-}
-
-function nodos(color, xnodo, ynodo){
-    lienzo.strokeStyle = color;
-    lienzo.lineTo(xnodo, ynodo);
-    lienzo.stroke();
-}
-
-function finalLinea(xfinal, yfinal){
-    lienzo.lineTo(xfinal, yfinal);
-    lienzo.stroke();
-    lienzo.closePath();
-}
-
-inicioLinea("magenta", 0,0);
-nodos("blue", 20,20);
-nodos("green", 30,20);
-nodos("orange", 40,20);
-nodos("red", 40,30);
-nodos("cyan", 40,40);
-nodos("blue", 40,50);
-nodos("yellow", 40,60);
-finalLinea(80,80);
-
-
-
-
-
